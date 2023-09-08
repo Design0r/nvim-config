@@ -5,6 +5,7 @@ local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig")
 
+
 lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -15,13 +16,9 @@ lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "typescript-language-server", "--stdio" },
-  --filetypes = {"javascript", "html", "css", "javascriptreact", "javascript.jsx", "json", "typescript", "typescriptreact"},
 })
 
-lspconfig.clangd.setup {
-  on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
+lspconfig.svelte.setup({
+  on_attach = on_attach,
   capabilities = capabilities,
-}
+})
