@@ -26,7 +26,15 @@ lspconfig.tailwindcss.setup({
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = {"rustup", "run", "stable", "rust-analyzer"}
+  cmd = {"rustup", "run", "stable", "rust-analyzer"},
+  filetypes = {"rust"},
+  settings = {
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
 })
 
 
