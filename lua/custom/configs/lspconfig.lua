@@ -18,7 +18,15 @@ lspconfig.tsserver.setup({
   cmd = { "typescript-language-server", "--stdio" },
 })
 
-lspconfig.svelte.setup({
+lspconfig.tailwindcss.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
+
+lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"rustup", "run", "stable", "rust-analyzer"}
+})
+
+

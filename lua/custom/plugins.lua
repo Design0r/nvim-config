@@ -3,7 +3,7 @@ local plugins = {
 
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python", "javascript", "html", "css", "javascriptreact", "json", "typescript", "typescriptreact", "svelte"},
+    lazy=false,
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -17,7 +17,7 @@ local plugins = {
         "pyright",
         "prettier",
         "typescript-language-server",
-        "svelte-language-server",
+        "tailwindcss-language-server",
       },
     },
   },
@@ -26,6 +26,19 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      {"roobert/tailwindcss-colorizer-cmp.nvim", config=true},
+    },
+    opts = function (_, opts)
+      local format_kinds = opts.formatting.format
+      opts.formatting.format = function (entry, item)
+        format_kinds(entry, item)
+        return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+      end
     end,
   },
 }
