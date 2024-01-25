@@ -13,6 +13,7 @@ M.treesitter = {
     "markdown_inline",
     "python",
     "rust",
+    "go",
   },
   indent = {
     enable = true,
@@ -39,6 +40,12 @@ M.mason = {
     "pyright",
     "ruff",
     "black",
+
+    -- go
+    "gopls",
+    "gofumpt",
+    "goimports_reviser",
+    "golines",
   },
 }
 

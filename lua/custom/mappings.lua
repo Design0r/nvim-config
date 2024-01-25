@@ -6,10 +6,22 @@ M.general = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
   },
   v = {
-    [">"] = { ">gv", "indent"},
+    [">"] = { ">gv", "indent" },
   },
 }
 
--- more keybinds!
+M.gopher = {
+  plugin = true,
+  n = {
+    ["<leader>gsj"] = {
+      "<cmd> GoTagAdd json <CR>",
+      "Add JSON Struct Tags",
+    },
+    ["<leader>gsy"] = {
+      "<cmd> GoTagAdd yaml <CR>",
+      "Add YAML Struct Tags",
+    },
+  },
+}
 
 return M
