@@ -44,7 +44,7 @@ M.mason = {
     -- go
     "gopls",
     "gofumpt",
-    "goimports_reviser",
+    "goimports-reviser",
     "golines",
   },
 }
