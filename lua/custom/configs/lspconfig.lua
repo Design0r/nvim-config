@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "pyright", "tailwindcss" }
+local servers = { "html", "cssls", "tsserver", "tailwindcss", "ruff" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -19,19 +19,36 @@ lspconfig.rust_analyzer.setup {
   cmd = { "rustup", "run", "stable", "rust-analyzer" },
 }
 
-lspconfig.gopls.setup {
+lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
-    gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
+    pyright = {
+      -- Using Ruff's import organizer
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { "*" },
       },
     },
   },
 }
+
+-- lspconfig.gopls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = { "gopls" },
+--   filetypes = { "go", "gomod", "gowork", "gotmpl" },
+--   root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+--   settings = {
+--     gopls = {
+--       completeUnimported = true,
+--       usePlaceholders = true,
+--       analyses = {
+--         unusedparams = true,
+--       },
+--     },
+--   },
+-- }

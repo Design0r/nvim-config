@@ -3,26 +3,29 @@ local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
 
-  -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "nvimtools/none-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
+    end,
   },
 
-  -- override plugin configs
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = overrides.conform,
+  },
+
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require "custom.configs.null-ls"
+  --   end,
+  -- },
+
   {
     "williamboman/mason.nvim",
     opts = overrides.mason,
@@ -38,7 +41,14 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
-  -- Install a plugin
+  {
+    "windwp/nvim-ts-autotag",
+    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -69,17 +79,17 @@ local plugins = {
       end
     end,
   },
-  {
-    "olexsmir/gopher.nvim",
-    ft = "go",
-    config = function(_, opts)
-      require("gopher").setup(opts)
-      require("core.utils").load_mappings "gopher"
-    end,
-    build = function()
-      vim.cmd [[silent! GOInstallDeps]]
-    end,
-  },
+  -- {
+  --   "olexsmir/gopher.nvim",
+  --   ft = "go",
+  --   config = function(_, opts)
+  --     require("gopher").setup(opts)
+  --     require("core.utils").load_mappings "gopher"
+  --   end,
+  --   build = function()
+  --     vim.cmd [[silent! GOInstallDeps]]
+  --   end,
+  -- },
 }
 
 return plugins
