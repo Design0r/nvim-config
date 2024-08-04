@@ -43,7 +43,7 @@ local plugins = {
 
   {
     "windwp/nvim-ts-autotag",
-    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact" },
     config = function()
       require("nvim-ts-autotag").setup()
     end,
@@ -65,6 +65,7 @@ local plugins = {
       },
     },
   },
+
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
