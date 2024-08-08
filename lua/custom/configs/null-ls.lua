@@ -12,7 +12,7 @@ local sources = {
   b.formatting.stylua,
 
   -- python
-  b.formatting.black,
+  -- b.formatting.black,
 
   -- rust
   --b.formatting.rustfmt,

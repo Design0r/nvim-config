@@ -39,7 +39,6 @@ M.mason = {
     -- python
     "pyright",
     "ruff",
-    "black",
 
     -- go
     -- "gopls",
@@ -54,7 +53,6 @@ M.nvimtree = {
   git = {
     enable = true,
   },
-
   filters = {
     git_ignored = false,
   },
