@@ -13,7 +13,7 @@ M.treesitter = {
     "markdown_inline",
     "python",
     "rust",
-    -- "go"
+    "go",
   },
   indent = {
     enable = true,
@@ -32,7 +32,7 @@ M.mason = {
     -- web dev stuff
     "css-lsp",
     "html-lsp",
-    "typescript-language-server",
+    "tsserver",
     "tailwindcss-language-server",
     "prettier",
 
@@ -41,10 +41,10 @@ M.mason = {
     "ruff",
 
     -- go
-    -- "gopls",
-    -- "gofumpt",
-    -- "goimports-reviser",
-    -- "golines",
+    "gopls",
+    "gofumpt",
+    "goimports-reviser",
+    "golines",
   },
 }
 
