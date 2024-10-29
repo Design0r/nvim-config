@@ -13,14 +13,16 @@ local sources = {
 
   -- python
   -- b.formatting.black,
+  b.formatting.djlint,
+  b.diagnostics.djlint,
 
   -- rust
   --b.formatting.rustfmt,
 
   -- go
-  b.formatting.gofumpt,
-  b.formatting.goimports_reviser,
-  b.formatting.golines,
+  -- b.formatting.gofumpt,
+  -- b.formatting.goimports_reviser,
+  -- b.formatting.golines,
 }
 
 null_ls.setup {

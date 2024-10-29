@@ -13,7 +13,8 @@ M.treesitter = {
     "markdown_inline",
     "python",
     "rust",
-    "go",
+    "htmldjango",
+    -- "go",
   },
   indent = {
     enable = true,
@@ -32,19 +33,20 @@ M.mason = {
     -- web dev stuff
     "css-lsp",
     "html-lsp",
-    "tsserver",
+    "typescript-language-server",
     "tailwindcss-language-server",
     "prettier",
 
     -- python
     "pyright",
     "ruff",
+    "djlint",
 
     -- go
-    "gopls",
-    "gofumpt",
-    "goimports-reviser",
-    "golines",
+    -- "gopls",
+    -- "gofumpt",
+    -- "goimports-reviser",
+    -- "golines",
   },
 }
 
@@ -67,6 +69,11 @@ M.nvimtree = {
 }
 
 M.conform = {
+  formatters = {
+    djlint = {
+      prepend_args = { "--indent", "2" },
+    },
+  },
   default_format_opts = {
     lsp_format = "fallback",
   },
@@ -88,8 +95,9 @@ M.conform = {
     javascript = { "prettierd", "prettier", stop_after_first = true },
     typescript = { "prettierd", "prettier", stop_after_first = true },
     typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-    html = { "prettierd", "prettier", stop_after_first = true },
+    html = { "djlint", "prettierd", "prettier", stop_after_first = true },
     css = { "prettierd", "prettier", stop_after_first = true },
+    htmldjango = { "djlint", stop_after_first = true },
   },
 }
 
