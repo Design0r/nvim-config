@@ -14,7 +14,8 @@ M.treesitter = {
     "python",
     "rust",
     "htmldjango",
-    -- "go",
+    "go",
+    "templ",
   },
   indent = {
     enable = true,
@@ -43,10 +44,11 @@ M.mason = {
     "djlint",
 
     -- go
-    -- "gopls",
-    -- "gofumpt",
-    -- "goimports-reviser",
-    -- "golines",
+    "gopls",
+    "gofumpt",
+    "goimports-reviser",
+    "golines",
+    "templ",
   },
 }
 
@@ -73,6 +75,9 @@ M.conform = {
     djlint = {
       prepend_args = { "--indent", "2" },
     },
+    -- ["goimports-reviser"] = {
+    --   prepend_args = { "--rm-unused" },
+    -- },
   },
   default_format_opts = {
     lsp_format = "fallback",
@@ -98,6 +103,7 @@ M.conform = {
     html = { "djlint", "prettierd", "prettier", stop_after_first = true },
     css = { "prettierd", "prettier", stop_after_first = true },
     htmldjango = { "djlint", stop_after_first = true },
+    go = { "gofumpt", "golines", "goimports-reviser" },
   },
 }
 
