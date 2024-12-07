@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "ts_ls", "tailwindcss", "ruff", "templ" }
+local servers = { "html", "cssls", "ts_ls", "ruff", "templ" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -30,6 +30,18 @@ lspconfig.pyright.setup {
     python = {
       analysis = {
         typeCheckingMode = "strict",
+      },
+    },
+  },
+}
+lspconfig.tailwindcss.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+  settings = {
+    tailwindCSS = {
+      includeLanguages = {
+        templ = "html",
       },
     },
   },
