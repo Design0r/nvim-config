@@ -16,6 +16,8 @@ M.treesitter = {
     "htmldjango",
     "go",
     "templ",
+    "cpp",
+    "c",
   },
   indent = {
     enable = true,
@@ -49,6 +51,10 @@ M.mason = {
     "goimports-reviser",
     "golines",
     "templ",
+
+    -- c++
+    "clangd",
+    "clang-format",
   },
 }
 
@@ -105,6 +111,7 @@ M.conform = {
     htmldjango = { "djlint", stop_after_first = true },
     go = { "gofumpt", "golines", "goimports-reviser" },
     templ = { "templ" },
+    cpp = { "clang-format" },
   },
 }
 
