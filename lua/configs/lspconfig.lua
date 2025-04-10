@@ -42,7 +42,7 @@ lspconfig.pyright.setup {
 lspconfig.tailwindcss.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "templ", "astro", "javascript", "typescript", "react", "html" },
+  filetypes = { "templ", "astro", "javascript", "typescript", "react", "html", "typescriptreact" },
   settings = {
     tailwindCSS = {
       includeLanguages = {

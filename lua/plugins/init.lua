@@ -3,7 +3,7 @@ local overrides = require "configs.overrides"
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
     -- cmd = { "ConformInfo" },
   },
@@ -15,7 +15,7 @@ return {
     end,
   },
 
- {
+  {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },
@@ -61,7 +61,6 @@ return {
       { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     },
     opts = function(_, opts)
-      -- original LazyVim kind icon formatter
       local format_kinds = opts.formatting.format
       opts.formatting.format = function(entry, item)
         format_kinds(entry, item) -- add icons
@@ -70,4 +69,3 @@ return {
     end,
   },
 }
-
