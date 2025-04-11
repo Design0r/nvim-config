@@ -16,4 +16,7 @@ map("n", "<leader>ls", function()
   vim.lsp.buf.signature_help()
 end, { desc = "LSP signature help" })
 
+map("v", ">", ">gv", { desc = "indent" })
+map("v", "<", "<gv", { desc = "unindent" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
