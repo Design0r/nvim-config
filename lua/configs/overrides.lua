@@ -18,6 +18,7 @@ M.treesitter = {
     "templ",
     "cpp",
     "c",
+    "zig",
   },
   indent = {
     enable = true,
@@ -55,6 +56,9 @@ M.mason = {
     -- c++
     "clangd",
     "clang-format",
+
+    -- zig
+    "zls",
   },
 }
 
@@ -112,6 +116,7 @@ M.conform = {
     go = { "gofumpt", "golines", "goimports-reviser" },
     templ = { "templ" },
     cpp = { "clang-format" },
+    zig = { "zls" },
   },
 }
 
