@@ -8,6 +8,7 @@ local servers = { "html", "cssls", "ts_ls", "ruff", "templ", "clangd", "zls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 local on_attach = nvlsp.on_attach
 local capabilities = nvlsp.capabilities
+local on_init = nvlsp.on_init
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -19,11 +20,14 @@ for _, lsp in ipairs(servers) do
   vim.lsp.enable { lsp }
 end
 
-lspconfig("rust_analyzer", {
+lspconfig("rust-analyzer", {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { "rustup", "run", "stable", "rust-analyzer" },
+  cmd = { "rust-analyzer" },
+  root_markers = { "Cargo.toml", ".git" },
+  single_file_support = true,
   filetypes = { "rust", "rs" },
+  on_init = on_init,
 })
 vim.lsp.enable "rust-analyzer"
 
@@ -42,7 +46,7 @@ lspconfig("pyright", {
     },
   },
 })
-vim.lsp.enable "pyright"
+vim.lsp.enable { "pyright" }
 
 lspconfig("tailwindcss", {
   on_attach = on_attach,
@@ -56,7 +60,7 @@ lspconfig("tailwindcss", {
     },
   },
 })
-vim.lsp.enable "tailwindcss"
+vim.lsp.enable { "tailwindcss" }
 
 lspconfig("gopls", {
   on_attach = on_attach,
@@ -75,4 +79,4 @@ lspconfig("gopls", {
     },
   },
 })
-vim.lsp.enable "gopls"
+vim.lsp.enable { "gopls" }
