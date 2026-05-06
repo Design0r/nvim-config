@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = vim.lsp.config
 
 -- EXAMPLE
-local servers = { "html", "cssls", "ts_ls", "ruff", "templ", "clangd", "zls" }
+local servers = { "html", "cssls", "ts_ls", "ruff", "templ", "clangd" }
 local nvlsp = require "nvchad.configs.lspconfig"
 local on_attach = nvlsp.on_attach
 local capabilities = nvlsp.capabilities
@@ -80,3 +80,5 @@ lspconfig("gopls", {
   },
 })
 vim.lsp.enable { "gopls" }
+
+-- read :h vim.lsp.config for changing options of lsp servers 
