@@ -13,11 +13,12 @@ M.treesitter = {
     "markdown_inline",
     "python",
     "rust",
-    "htmldjango",
     "go",
-    "templ",
     "cpp",
     "c",
+    -- "templ",
+    -- "htmldjango",
+    -- "svelte",
   },
   indent = {
     enable = true,
@@ -39,18 +40,19 @@ M.mason = {
     "typescript-language-server",
     "tailwindcss-language-server",
     "prettier",
+    -- "svelte-language-server",
 
     -- python
     "pyright",
     "ruff",
-    "djlint",
+    -- "djlint",
 
     -- go
     "gopls",
     "gofumpt",
     "goimports-reviser",
     "golines",
-    "templ",
+    -- "templ",
 
     -- c++
     "clangd",
@@ -75,6 +77,5 @@ M.nvimtree = {
     },
   },
 }
-
 
 return M
