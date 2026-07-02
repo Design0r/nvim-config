@@ -23,6 +23,10 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+      require("configs.treesitter_compat").patch_directives()
+    end,
   },
 
   {
