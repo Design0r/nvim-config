@@ -22,10 +22,20 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
     opts = overrides.treesitter,
     config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-      require("configs.treesitter_compat").patch_directives()
+      require("nvim-treesitter").install(opts.ensure_installed)
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          if pcall(vim.treesitter.start, args.buf) then
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
     end,
   },
 
